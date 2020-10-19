@@ -1,0 +1,7 @@
+C:\Users\Jemima\source\repos\Locadora_de_Carro\sistema.DAL\bin\Debug\sistema.DAL.dll.config
+C:\Users\Jemima\source\repos\Locadora_de_Carro\sistema.DAL\bin\Debug\sistema.DAL.dll
+C:\Users\Jemima\source\repos\Locadora_de_Carro\sistema.DAL\bin\Debug\sistema.DAL.pdb
+C:\Users\Jemima\source\repos\Locadora_de_Carro\sistema.DAL\obj\Debug\sistema.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Jemima\source\repos\Locadora_de_Carro\sistema.DAL\obj\Debug\sistema.DAL.dll
+C:\Users\Jemima\source\repos\Locadora_de_Carro\sistema.DAL\obj\Debug\sistema.DAL.pdb
+C:\Users\Jemima\source\repos\Locadora_de_Carro\sistema.DAL\obj\Debug\sistema.DAL.csprojAssemblyReference.cache

@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Loca_Car" Class="sistemaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-6FAIU81\MSSQLSERVER1;Initial Catalog=Loca_Car;User ID=sa" SettingsObjectName="sistema.DAL.Properties.Settings" SettingsPropertyName="Loca_CarConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tb_categoriacnh" Member="Categoriacnh">
+    <Type Name="Categoriacnh">
+      <Column Name="CNH" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="categoriacnh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Categoriacnh_Cliente" Member="Cliente" ThisKey="CNH" OtherKey="categoriacnh" Type="Cliente" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_cliente" Member="Cliente">
+    <Type Name="Cliente">
+      <Column Name="id_cliente" Member="Código" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nome" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="endereço" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="telefone" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="data_de_nascimento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="cnh" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="categoriacnh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Cliente_Locação" Member="Locação" ThisKey="Código" OtherKey="id_pessoa" Type="Locação" />
+      <Association Name="Cliente_ItensLocação" Member="ItensLocação" ThisKey="Código" OtherKey="id_cliente" Type="ItensLocação" />
+      <Association Name="Categoriacnh_Cliente" Member="Categoriacnh1" ThisKey="categoriacnh" OtherKey="CNH" Type="Categoriacnh" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_situaçao" Member="Situacao">
+    <Type Name="Situacao">
+      <Column Name="codigo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="situação" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Situacao_Veiculo" Member="Veiculo" ThisKey="situação" OtherKey="situação" Type="Veiculo" />
+      <Association Name="ItensLocação_Situacao" Member="ItensLocação" ThisKey="situação" OtherKey="situação" Type="ItensLocação" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_locação" Member="Locação">
+    <Type Name="Locação">
+      <Column Name="id_locação" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="valor" Type="System.Decimal" DbType="Decimal(15,2)" CanBeNull="true" />
+      <Column Name="desconto" Type="System.Decimal" DbType="Decimal(15,2)" CanBeNull="true" />
+      <Column Name="valor_pago" Type="System.Decimal" DbType="Decimal(15,2)" CanBeNull="true" />
+      <Column Name="id_pessoa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_cliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Locação_ItensLocação" Member="ItensLocação" ThisKey="id_locação" OtherKey="id_locação" Type="ItensLocação" />
+      <Association Name="Locação_ContasReceber" Member="ContasReceber" ThisKey="id_locação" OtherKey="id_locação" Type="ContasReceber" />
+      <Association Name="Cliente_Locação" Member="Cliente" ThisKey="id_pessoa" OtherKey="Código" Type="Cliente" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_veiculo" Member="Veiculo">
+    <Type Name="Veiculo">
+      <Column Name="id_veiculo" Member="Código" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fabricante" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="modelo" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="ano" Type="System.Decimal" DbType="Decimal(25,0)" CanBeNull="true" />
+      <Column Name="placa" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="cor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="chassi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="renavam" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="situação" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="valor" Type="System.Decimal" DbType="Decimal(15,2)" CanBeNull="true" />
+      <Association Name="Veiculo_ItensLocação" Member="ItensLocação" ThisKey="Código,modelo,valor,fabricante,cor,ano,placa,situação" OtherKey="id_veiculo,modelo,valor,fabricante,cor,ano,placa,situação" Type="ItensLocação" />
+      <Association Name="Veiculo_ContasReceber" Member="ContasReceber" ThisKey="Código,situação" OtherKey="id_veiculo,situação" Type="ContasReceber" />
+      <Association Name="Situacao_Veiculo" Member="Situacao" ThisKey="situação" OtherKey="situação" Type="Situacao" IsForeignKey="true" />
+      <Association Name="ItensLocação_Veiculo" Member="ItensLocação1" ThisKey="valor,modelo,situação,fabricante,ano,placa,cor" OtherKey="valor,modelo,situação,fabricante,ano,placa,cor" Type="ItensLocação" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_itens_locação" Member="ItensLocação">
+    <Type Name="ItensLocação">
+      <Column Name="id_item" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_veiculo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_locação" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="valor" Type="System.Decimal" DbType="Decimal(15,2)" CanBeNull="true" />
+      <Column Name="quantidade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_cliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="modelo" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="situação" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="fabricante" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ano" Type="System.Decimal" DbType="Decimal(25,0)" CanBeNull="true" />
+      <Column Name="placa" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="cor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="ItensLocação_Situacao" Member="Situacao" ThisKey="situação" OtherKey="situação" Type="Situacao" />
+      <Association Name="ItensLocação_Veiculo" Member="Veiculo1" ThisKey="valor,modelo,situação,fabricante,ano,placa,cor" OtherKey="valor,modelo,situação,fabricante,ano,placa,cor" Type="Veiculo" />
+      <Association Name="ItensLocação_ContasReceber" Member="ContasReceber1" ThisKey="id_veiculo" OtherKey="id_veiculo" Type="ContasReceber" />
+      <Association Name="Cliente_ItensLocação" Member="Cliente" ThisKey="id_cliente" OtherKey="Código" Type="Cliente" IsForeignKey="true" />
+      <Association Name="Veiculo_ItensLocação" Member="Veiculo" ThisKey="id_veiculo,modelo,valor,fabricante,cor,ano,placa,situação" OtherKey="Código,modelo,valor,fabricante,cor,ano,placa,situação" Type="Veiculo" IsForeignKey="true" />
+      <Association Name="Locação_ItensLocação" Member="Locação" ThisKey="id_locação" OtherKey="id_locação" Type="Locação" IsForeignKey="true" />
+      <Association Name="ContasReceber_ItensLocação" Member="ContasReceber" ThisKey="id_veiculo,situação" OtherKey="id_veiculo,situação" Type="ContasReceber" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_status" Member="StatusPagamento">
+    <Type Name="StatusPagamento">
+      <Column Name="id_status" Member="CódigoStatus" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="status" Member="Status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="StatusPagamento_ContasReceber" Member="ContasReceber" ThisKey="CódigoStatus" OtherKey="CódigoSatus" Type="ContasReceber" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_contas_receber" Member="ContasReceber">
+    <Type Name="ContasReceber">
+      <Column Name="id_conta" Member="CódigoConta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="data_locação" Member="DataLocação" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="data_devolução" Member="DataDevolução" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="data_pagamento" Member="DataPagamento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="id_locação" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_status" Member="CódigoSatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_veiculo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="situação" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="ContasReceber_ItensLocação" Member="ItensLocação" ThisKey="id_veiculo,situação" OtherKey="id_veiculo,situação" Type="ItensLocação" />
+      <Association Name="Locação_ContasReceber" Member="Locação" ThisKey="id_locação" OtherKey="id_locação" Type="Locação" IsForeignKey="true" />
+      <Association Name="StatusPagamento_ContasReceber" Member="StatusPagamento" ThisKey="CódigoSatus" OtherKey="CódigoStatus" Type="StatusPagamento" IsForeignKey="true" />
+      <Association Name="Veiculo_ContasReceber" Member="Veiculo" ThisKey="id_veiculo,situação" OtherKey="Código,situação" Type="Veiculo" IsForeignKey="true" />
+      <Association Name="ItensLocação_ContasReceber" Member="ItensLocação1" ThisKey="id_veiculo" OtherKey="id_veiculo" Type="ItensLocação" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_funcionario" Member="Funcionario">
+    <Type Name="Funcionario">
+      <Column Name="ID_Funcionario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Endereco" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Telefone" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="DatadeNascimento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Salario" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Situacao" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Funcao" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HorarioEntrada" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="CargaHoraria" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Carga_Horaria_Funcionario" Member="Carga_Horaria" ThisKey="CargaHoraria" OtherKey="CargaHoraria" Type="Carga_Horaria" IsForeignKey="true" />
+      <Association Name="ControleHorario_Funcionario" Member="ControleHorario" ThisKey="CargaHoraria,Nome" OtherKey="CargaHoraria,Nome" Type="ControleHorario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_CargaHoraria" Member="Carga_Horaria">
+    <Type Name="Carga_Horaria">
+      <Column Name="ID_CargaHoraria" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CargaHoraria" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Carga_Horaria_Funcionario" Member="Funcionario" ThisKey="CargaHoraria" OtherKey="CargaHoraria" Type="Funcionario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_ControleHorario" Member="ControleHorario">
+    <Type Name="ControleHorario">
+      <Column Name="ID_ControleHorario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Mês" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Data" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Entrada" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Intervalo" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Retorno" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Saida" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Nome" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CargaHoraria" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="ControleHorario_Funcionario" Member="Funcionario" ThisKey="CargaHoraria,Nome" OtherKey="CargaHoraria,Nome" Type="Funcionario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_usuario" Member="tb_usuario">
+    <Type Name="tb_usuario">
+      <Column Name="usuario" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="senha" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="id_usuario" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Acesso" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

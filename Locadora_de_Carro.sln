@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LOCA_CAR", "LOCA_CAR\LOCA_CAR.csproj", "{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sistema.DAL", "sistema.DAL\sistema.DAL.csproj", "{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Debug|ARM.Build.0 = Debug|Any CPU
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Debug|x64.Build.0 = Debug|Any CPU
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Debug|x86.Build.0 = Debug|Any CPU
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Release|ARM.ActiveCfg = Release|Any CPU
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Release|ARM.Build.0 = Release|Any CPU
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Release|x64.ActiveCfg = Release|Any CPU
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Release|x64.Build.0 = Release|Any CPU
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Release|x86.ActiveCfg = Release|Any CPU
+		{FAAB2012-DF1A-49F3-A6FE-F2DBBAA6F8FA}.Release|x86.Build.0 = Release|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Debug|ARM.Build.0 = Debug|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Debug|x64.Build.0 = Debug|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Debug|x86.Build.0 = Debug|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Release|ARM.ActiveCfg = Release|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Release|ARM.Build.0 = Release|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Release|x64.ActiveCfg = Release|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Release|x64.Build.0 = Release|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Release|x86.ActiveCfg = Release|Any CPU
+		{DA2C95CF-3CED-4B5F-9303-03A4B4031E0B}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7EE7A896-9389-4311-BF89-28B17F2BE004}
+	EndGlobalSection
+EndGlobal
